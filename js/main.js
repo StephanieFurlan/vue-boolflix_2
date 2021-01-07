@@ -41,9 +41,9 @@ var app = new Vue({
       // movies
       selectedMovies: [],
       // tvShows
-      selectedTv: []
+      selectedTv: [],
 
-
+      flags: ['fr', 'en', 'it', 'es']
 
    },
    methods: {

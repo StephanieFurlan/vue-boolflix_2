@@ -275,3 +275,7 @@ main {
 #options select.showGenres {
    visibility: visible;
 }
+
+.card-info .flag {
+   width: 20px;
+}

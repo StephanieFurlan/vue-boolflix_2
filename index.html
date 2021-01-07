@@ -71,7 +71,15 @@
 
                                  <li><span class="info">Titolo:</span> {{ movie.title}} </li>
                                  <li><span class="info">Titolo originale:</span> {{ movie.original_title}} </li>
-                                 <li><span class="info">Lingua:</span> {{ movie.original_language}} </li>
+                                 <li>
+                                    <span class="info">Lingua:</span>
+                                    <span v-if="flags.includes(movie.original_language)">
+                                       <img class="flag" :src="'css/flags/' + movie.original_language + '.svg'" alt="">
+                                    </span>
+                                    <span v-else>
+                                       {{ movie.original_language}}
+                                    </span>
+                                     </li>
                                  <li>
                                     <span class="info">Voto:</span>
                                     <i v-for="star in Math.ceil(movie.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -120,7 +128,14 @@
 
                                  <li><span class="info">Titolo:</span> {{ movie.title}} </li>
                                  <li><span class="info">Titolo originale:</span> {{ movie.original_title}} </li>
-                                 <li><span class="info">Lingua:</span> {{ movie.original_language}} </li>
+                                 <li><span class="info">Lingua:</span>
+                                    <span v-if="flags.includes(movie.original_language)">
+                                       <img class="flag" :src="'css/flags/' + movie.original_language + '.svg'" alt="">
+                                    </span>
+                                    <span v-else>
+                                       {{ movie.original_language }}
+                                    </span>
+                                 </li>
                                  <li>
                                     <span class="info">Voto:</span>
                                     <i v-for="star in Math.ceil(movie.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -160,12 +175,21 @@
                         </div>
                         <div class="slide-container">
                            <div v-for="tv in top20Tvs" class="slide-img" :style="{left:top20TvsLeft + '%'}">
-                              <img :src="postersUrl + tv.backdrop_path" alt="tv.name">
+                              <div v-if="tv.backdrop_path != null">
+                                 <img :src="postersUrl + tv.backdrop_path" alt="tv.name">
+                              </div>
                               <div class="card-info">
                                  <ul class="card-list">
                                     <li><span class="info">Titolo:</span> {{ tv.name }} </li>
                                     <li><span class="info">Titolo originale:</span> {{ tv.original_name}} </li>
-                                    <li><span class="info">Lingua:</span> {{ tv.original_language}} </li>
+                                    <li><span class="info">Lingua:</span>
+                                       <span v-if="flags.includes(tv.original_language)">
+                                          <img class="flag" :src="'css/flags/' + tv.original_language + '.svg'" alt="">
+                                       </span>
+                                       <span v-else>
+                                          {{ tv.original_language }}
+                                       </span>
+                                    </li>
                                     <li>
                                        <span class="info">Voto:</span>
                                        <i v-for="star in Math.ceil(tv.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -210,7 +234,15 @@
                               <ul class="card-list">
                                  <li><span class="info">Titolo:</span> {{ tv.name }} </li>
                                  <li><span class="info">Titolo originale:</span> {{ tv.original_name}} </li>
-                                 <li><span class="info">Lingua:</span> {{ tv.original_language}} </li>
+                                 <li>
+                                    <span class="info">Lingua:</span>
+                                    <span v-if="flags.includes(tv.original_language)">
+                                       <img class="flag" :src="'css/flags/' + tv.original_language + '.svg'" alt="">
+                                    </span>
+                                    <span v-else>
+                                       {{ tv.original_language}}
+                                    </span>
+                                 </li>
                                  <li>
                                     <span class="info">Voto:</span>
                                     <i v-for="star in Math.ceil(tv.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -262,7 +294,14 @@
 
                                  <li><span class="info">Titolo:</span> {{ movie.title}} </li>
                                  <li><span class="info">Titolo originale:</span> {{ movie.original_title}} </li>
-                                 <li><span class="info">Lingua:</span> {{ movie.original_language}} </li>
+                                 <li><span class="info">Lingua:</span>
+                                    <span v-if="flags.includes(movie.original_language)">
+                                       <img class="flag" :src="'css/flags/' + movie.original_language + '.svg'" alt="">
+                                    </span>
+                                    <span v-else>
+                                       {{ movie.original_language}}
+                                    </span>
+                                 </li>
                                  <li>
                                     <span class="info">Voto:</span>
                                     <i v-for="star in Math.ceil(movie.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -311,7 +350,14 @@
 
                                  <li><span class="info">Titolo:</span> {{ movie.title}} </li>
                                  <li><span class="info">Titolo originale:</span> {{ movie.original_title}} </li>
-                                 <li><span class="info">Lingua:</span> {{ movie.original_language}} </li>
+                                 <li><span class="info">Lingua:</span>
+                                    <span v-if="flags.includes(movie.original_language)">
+                                       <img class="flag" :src="'css/flags/' + movie.original_language + '.svg'" alt="">
+                                    </span>
+                                    <span v-else>
+                                       {{ movie.original_language}}
+                                    </span>
+                                 </li>
                                  <li>
                                     <span class="info">Voto:</span>
                                     <i v-for="star in Math.ceil(movie.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -362,7 +408,14 @@
                                  <ul class="card-list">
                                     <li><span class="info">Titolo:</span> {{ tv.name }} </li>
                                     <li><span class="info">Titolo originale:</span> {{ tv.original_name}} </li>
-                                    <li><span class="info">Lingua:</span> {{ tv.original_language}} </li>
+                                    <li><span class="info">Lingua:</span>
+                                       <span v-if="flags.includes(tv.original_language)">
+                                          <img class="flag" :src="'css/flags/' + tv.original_language + '.svg'" alt="">
+                                       </span>
+                                       <span v-else>
+                                          {{ tv.original_language}}
+                                       </span>
+                                    </li>
                                     <li>
                                        <span class="info">Voto:</span>
                                        <i v-for="star in Math.ceil(tv.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -407,7 +460,14 @@
                               <ul class="card-list">
                                  <li><span class="info">Titolo:</span> {{ tv.name }} </li>
                                  <li><span class="info">Titolo originale:</span> {{ tv.original_name}} </li>
-                                 <li><span class="info">Lingua:</span> {{ tv.original_language}} </li>
+                                 <li><span class="info">Lingua:</span>
+                                    <span v-if="flags.includes(tv.original_language)">
+                                       <img class="flag" :src="'css/flags/' + tv.original_language + '.svg'" alt="">
+                                    </span>
+                                    <span v-else>
+                                       {{ tv.original_language}}
+                                    </span>
+                                 </li>
                                  <li>
                                     <span class="info">Voto:</span>
                                     <i v-for="star in Math.ceil(tv.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -459,7 +519,14 @@
                         <ul class="card-list">
                            <li><span class="info">Titolo:</span> {{ movie.title}} </li>
                            <li><span class="info">Titolo originale:</span> {{ movie.original_title}} </li>
-                           <li><span class="info">Lingua:</span> {{ movie.original_language}} </li>
+                           <li><span class="info">Lingua:</span>
+                              <span v-if="flags.includes(movie.original_language)">
+                                 <img class="flag" :src="'css/flags/' + movie.original_language + '.svg'" alt="">
+                              </span>
+                              <span v-else>
+                                 {{ movie.original_language}}
+                              </span>
+                           </li>
                            <li>
                               <span class="info">Voto:</span>
                               <i v-for="star in Math.ceil(movie.vote_average / 2)" class="fas fa-star star-full"></i>
@@ -502,7 +569,14 @@
                         <ul class="card-list">
                            <li><span class="info">Titolo:</span> {{ tv.name }} </li>
                            <li><span class="info">Titolo originale:</span> {{ tv.original_title}} </li>
-                           <li><span class="info">Lingua:</span> {{ tv.original_language}} </li>
+                           <li><span class="info">Lingua:</span>
+                              <span v-if="flags.includes(tv.original_language)">
+                                 <img class="flag" :src="'css/flags/' + tv.original_language + '.svg'" alt="">
+                              </span>
+                              <span v-else>
+                                 {{ tv.original_language}}
+                              </span>
+                           </li>
                            <li>
                               <span class="info">Voto:</span>
                               <i v-for="star in Math.ceil(tv.vote_average / 2)" class="fas fa-star star-full"></i>
